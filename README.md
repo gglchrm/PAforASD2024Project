@@ -21,9 +21,13 @@ Here’s a step-by-step explanation of how topological sorting works:
 
 
 ## 2. How to reproduce results and start an algorithm. Where and in which format data should be placed.
-
+To reproduce result you need to launch DAG_topological_sort.ipynb. In this file first cells is DAG-generator from https://github.com/Livioni/DAG_Generator, you can generate dataset by youself. 
+There is DAG_dataset_100k.txt in this repo.
 
 ## 3. What part of the alg parallel
+Khan's method by itself is poorly suited for parallelization because it assumes sequential vertex processing. We use the multiprocessing module to create a pool of workflows. Each process gets its own copy of the queue and result list through Manager.
 
+## 4. Speedup calculation -- dependency between number of threads/processes/workers and speedup (linear version time / parallel version time)
+Regular algo  --       0.612140 sec
 
-## 4. Speedup calculation -- dependency between number of threads/processes/workers and speedup (linear version time / parallel version time)		8
+Parallel allgo time -- 0.525991 sec
